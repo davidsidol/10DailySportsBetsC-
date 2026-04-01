@@ -38,14 +38,14 @@ schtasks /create ^
     /rl HIGHEST ^
     /f
 
-REM --- 5. Register daily fetcher task at 12:00 PM ---
-echo [5/5] Registering daily fetcher task...
+REM --- 5. Register daily fetcher task at 06:00 AM ---
+echo [5/5] Registering daily fetcher task at 6:00 AM...
 schtasks /delete /tn "SportsBettingFetcher" /f >nul 2>&1
 schtasks /create ^
     /tn "SportsBettingFetcher" ^
     /tr "C:\SportsBettingApp\SportsBettingFetcher.exe" ^
     /sc DAILY ^
-    /st 12:00 ^
+    /st 06:00 ^
     /ru SYSTEM ^
     /rl HIGHEST ^
     /f
@@ -62,7 +62,7 @@ echo   - App Pool SportsBetting (AlwaysRunning)
 echo.
 echo Scheduled Tasks registered:
 echo   - SportsBettingStartup  (on boot, 1min delay)
-echo   - SportsBettingFetcher  (daily at 12:00 PM)
+echo   - SportsBettingFetcher  (daily at 6:00 AM)
 echo.
 echo Dashboard will be available at http://localhost:8090 after reboot.
 echo Run: schtasks /run /tn "SportsBettingFetcher" to fetch data immediately.

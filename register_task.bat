@@ -15,7 +15,7 @@ schtasks /create ^
     /tn "%TASK_NAME%" ^
     /tr "%APP_PATH%" ^
     /sc DAILY ^
-    /st 12:00 ^
+    /st 06:00 ^
     /ru SYSTEM ^
     /rl HIGHEST ^
     /f ^
@@ -26,7 +26,7 @@ IF ERRORLEVEL 1 (
     exit /b 1
 )
 
-echo Task registered. Runs daily at 12:00 PM as SYSTEM.
+echo Task registered. Runs daily at 6:00 AM as SYSTEM.
 echo.
 echo To run immediately:   schtasks /run /tn "%TASK_NAME%"
 echo To check status:      schtasks /query /tn "%TASK_NAME%" /fo LIST /v
